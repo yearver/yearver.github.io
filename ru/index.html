@@ -1,0 +1,168 @@
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Версионирование на основе года (YearVer)</title>
+<base target="_blank">
+<script type="text/javascript">
+function spoiler(element, event)
+{
+    if (event.target.nodeName == 'A' || event.target.parentNode.nodeName == 'A' || event.target.onclick)//чтобы работали ссылки в спойлерах и спойлеры2 в спойлерах
+        return;
+    var e = element.firstChild.nextSibling.nextSibling;//element.getElementsByTagName('span')[0]
+    e.previousSibling.style.display = e.style.display;//<span>…</span> must have inverted display style
+    e.style.display = (e.style.display == "none" ? "" : "none");
+    element.firstChild.style.fontWeight =
+    element. lastChild.style.fontWeight = (e.style.display == "" ? "normal" : "bold");
+    event.stopPropagation();
+    //[-Чтобы была возможность выделять текст внутри раскрытого ‘скрытого текста’/спойлера, необходимо [скрытие/]закрытие спойлера делать не просто по нажатию левой кнопки мыши, а по отпусканию левой кнопки мыши при условии отсутствия движения курсора [мыши] после того, как была нажата левая кнопка мыши.-]
+}
+function spoiler2(element, event)
+{
+    element.nextSibling.style.display = (element.nextSibling.style.display == "none" ? "" : "none");
+}
+</script>
+<style type="text/css">
+div#main, td {
+    font-size: 14px;
+    font-family: Verdana, sans-serif;
+    line-height: 160%;
+    text-align: justify;
+}
+span.cu_brackets_b {
+    font-size: initial;
+    font-family: initial;
+    font-weight: bold;
+}
+a {
+    text-decoration: none;
+    color: #6da3bd;
+}
+a:hover {
+    text-decoration: underline;
+    color: #4d7285;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-weight: 400;
+}
+h1 {font-size: 200%; line-height: 130%;}
+h2 {font-size: 170%; line-height: 135%;}
+h3 {font-size: 150%; line-height: 140%;}
+h4 {font-size: 140%; line-height: 145%;}
+h5 {font-size: 130%; line-height: 140%;}
+h6 {font-size: 120%; line-height: 140%;}
+span.sq {color: gray; font-size: 0.8rem; font-weight: normal; /*pointer-events: none;*/}
+span.sq_brackets {color: #BFBFBF;}
+span.cu_brackets {cursor: pointer;}
+span.cu {background-color: #F7F7FF;}
+abbr {text-decoration: none; border-bottom: 1px dotted;}
+pre {margin: 0;}
+pre, code {font-family: 'Courier New'; line-height: normal}
+ul, ol {margin: 11px 0 7px 0;}
+ul li, ol li {padding: 7px 0;}
+ul li:first-child, ol li:first-child {padding-top   : 0;}
+ul  li:last-child, ol  li:last-child {padding-bottom: 0;}
+table {margin: 9px 0; border-collapse: collapse;}
+table th, table td {padding: 6px 13px; border: 1px solid #BFBFBF;}
+span.spoiler_title {
+    color: #548eaa;
+    cursor: pointer;
+    border-bottom: 1px dotted;
+}
+div.spoiler_text {
+    /*border: 1px dotted;*/
+    margin: 5px;
+    padding: 3px;
+}
+blockquote {
+    margin: 0 0 7px 0;
+    padding: 7px 12px;
+}
+blockquote:not(.re) {border-left:  0.2em solid #90ddaa; background-color: #fbfffb;}
+blockquote.re       {border-right: 0.2em solid #90ddaa; background-color: #f4fff8;}
+div.note {
+    padding: 18px 20px;
+    background: #ffffd7;
+}
+pre.code_block {padding: 6px 0;}
+pre.inline_code {
+    display: inline;
+    padding: 0px 3px;
+    border: 1px solid #E5E5E5;
+    background-color: #FAFAFA;
+    border-radius: 3px;
+}
+img {vertical-align: middle;}
+
+div#main {width: 100%;}
+@media screen and (min-width: 1050px) {
+    div#main {width: 1024px;}
+}
+</style>
+</head>
+<body>
+<div id="main" style="margin: 0 auto">
+<!--[[[H‘Версионирование на основе года (YearVer)’
+]]]--><div align="right"><table>
+<tr><td><a href="./.." target="_self">en</a></td><td><b>ru</b></td></tr>
+</table>
+</div>
+<br />
+<br />
+<br />
+<div align="center"><h2>Версионирование на основе года<br />
+(YearVer)</h2></div>
+<br />
+<br />
+<br />
+Суть YearVer в обозначении номеров версий в виде/форме <pre class="inline_code">ГГГГ.М</pre>, <pre class="inline_code">ГГГГ.Н</pre>, <pre class="inline_code">ГГГГ.Н.н</pre> или <pre class="inline_code">ГГГГ.М.н</pre> <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
+<pre class="inline_code">ГГГГ</pre> — год<br />
+<pre class="inline_code">М</pre> — месяц (число от 1 до 12)<br />
+<pre class="inline_code">Н</pre>/<pre class="inline_code">н</pre> — порядковый номер (начиная с 1)<br />
+</span><span class="cu_brackets_b">}</span></span>.<br />
+<br />
+<br />
+Если требуется 3 числа, разделённых точкой <span class="sq"><span class="sq_brackets">[</span>как например в npm <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
+<pre>
+npm ERR! Invalid version: "2021.2"
+</pre>
+<blockquote><a href="https://stackoverflow.com/a/27543014/2692494" title="<- google:‘npm ERR! Invalid version’"><i>https://stackoverflow.com/a/27543014/2692494</i></a>:<br />
+<br />
+the version number can only be like <pre class="inline_code">\d+\.\d+\.\d+</pre></blockquote>
+</span><span class="cu_brackets_b">}</span></span><span class="sq_brackets">]</span></span>, то можно вместо <pre class="inline_code">2021.2</pre> писать <pre class="inline_code">2021.2.0</pre>.<br />
+<br />
+<br />
+Дополнительные версии, опубликованные в этом же месяце, либо <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
+<br />
+Имеется в виду, что при выборе первой стратегии версия к примеру <pre class="inline_code">2021.2.1</pre> означает ‘дополнительная/новая версия, выпущенная в том же месяце, что и основная <span class="sq"><span class="sq_brackets">[</span>т.е. в феврале<span class="sq_brackets">]</span></span>’, а при выборе второй стратегии этот же номер версии означает ‘версия, исправляющая основную версию <span class="sq"><span class="sq_brackets">[</span><pre class="inline_code">2021.2</pre><span class="sq_brackets">]</span></span> <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">при этом сама версия <pre class="inline_code">2021.2.1</pre> не обязательно должна быть выпущена в феврале</span><span class="cu_brackets_b">}</span></span>’.<br />
+<br />
+При выборе второй стратегии допускается использовать вторую цифру номера версии как порядковый номер <span class="sq"><span class="sq_brackets">[</span>версии в соответствующем году<span class="sq_brackets">]</span></span>, а не как номер месяца. Такой стратегии <a href="https://www.jetbrains.com/clion/download/other.html">придерживается</a> к примеру JetBrains.<br />
+<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Таким образом, YearVer (запись версии вида `ГГГГ.X` и `ГГГГ.X.Z`) предполагает 3 варианта выбора<br /></span><div class="spoiler_text" style="display: none">
+<ol>
+<li>Для безошибочных проектов номер <pre class="inline_code">X</pre> обозначает номер месяца, в котором была выпущена <!--[[[соответствующая/]]]-->данная версия, а <pre class="inline_code">Z</pre> — номер дополнительной/новой версии в этом же месяце.</li>
+<li>Для проектов, допускающих исправление ошибок, номер <pre class="inline_code">X</pre> обозначает номер месяца, в котором была выпущена <!--[[[соответствующая/]]]-->данная версия, а <pre class="inline_code">Z</pre> — номер версии <span class="sq"><span class="sq_brackets">[</span>выпущенной не обязательно в этом же месяце<span class="sq_brackets">]</span></span>, исправляющей ошибки версии <pre class="inline_code">ГГГГ.X</pre> или <pre class="inline_code">ГГГГ.X.(Z-1)</pre>.</li>
+<li>Аналогично п. 2, только <pre class="inline_code">X</pre> обозначает не номер месяца, а порядковый номер <span class="sq"><span class="sq_brackets">[</span>начиная с 1<span class="sq_brackets">]</span></span> в рамках соответствующего года. <span class="sq"><span class="sq_brackets">[</span>Стратегия JetBrains.<span class="sq_brackets">]</span></span></li>
+</ol>
+</div>
+<br />
+</span><span class="cu_brackets_b">}</span></span></span><span class="cu_brackets_b">}</span></span> <!--[[[только ]]]-->исправляющие ошибки основной версии <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">следует определиться и выбрать наиболее подходящую стратегию в зависимости от проекта <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">есть проекты <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">как правило небольшие по размеру, а по форме обычно это утилиты командной строки <span class="sq"><span class="sq_brackets">[</span>и проекты, которые можно покрыть тестами практически на 100%<span class="sq_brackets">]</span></span></span><span class="cu_brackets_b">}</span></span>, в которых каждая версия должна/может быть безошибочной <span class="sq"><span class="sq_brackets">[</span><span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">очевидно, в таких проектах не нужны версии исправляющие ошибки</span><span class="cu_brackets_b">}</span></span><span class="sq_brackets">]</span></span></span><span class="cu_brackets_b">}</span></span></span><span class="cu_brackets_b">}</span></span>, следует называть <pre class="inline_code">2021.2.1</pre>, <pre class="inline_code">2021.2.2</pre> и т.д.<br />
+<br />
+<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Что не так с SemVer?<br /></span><div class="spoiler_text" style="display: none">
+<a href="https://semver.org/lang/ru/">SemVer</a> хорошо подходит <!--[[[только ]]]-->для версий ниже 1.0.0<!--[[[ [также как и всякие дополнительные идентификаторы вроде alpha и beta]]]]--> или для некоторых типов проектов, <!--[[[а/]]]-->но многие положения SemVer вызывают вопросы, <!--[[[т.к. само по себе]]]-->включая условие поднятия major-версии<!--[[[ ‘вызывает вопросы’/неоднозначно]]]-->. Например, если изменить название функции API, этого достаточно для <!--[[[повышения/]]]-->увеличения major-версии?<br />
+<br />
+Про другие аргументы против SemVer можно почитать <a href="https://sedimental.org/designing_a_version.html" title="<- https://calver.org/">здесь</a>.<br />
+</div>
+<br />
+<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Что не так с CalVer?<br /></span><div class="spoiler_text" style="display: none">
+Слишком размытая спецификация.<br />
+Но YearVer, разумеется, можно рассматривать как частный случай <a href="https://calver.org">CalVer</a>.<br />
+</div>
+<br />
+<br />
+Если вы хотите оставить отзыв, создайте <a href="https://github.com/yearver/yearver/issues">запрос на GitHub</a>.<br />
+</div>
+</body>
+</html>

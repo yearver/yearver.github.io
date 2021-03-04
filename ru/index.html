@@ -46,9 +46,9 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
 }
 h1 {font-size: 200%; line-height: 130%;}
-h2 {font-size: 170%; line-height: 135%;}
-h3 {font-size: 150%; line-height: 140%;}
-h4 {font-size: 140%; line-height: 145%;}
+h2 {font-size: 180%; line-height: 135%;}
+h3 {font-size: 160%; line-height: 140%;}
+h4 {font-size: 145%; line-height: 145%;}
 h5 {font-size: 130%; line-height: 140%;}
 h6 {font-size: 120%; line-height: 140%;}
 span.sq {color: gray; font-size: 0.8rem; font-weight: normal; /*pointer-events: none;*/}
@@ -140,7 +140,7 @@ the version number can only be like <pre class="inline_code">\d+\.\d+\.\d+</pre>
 <br />
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Таким образом, YearVer (запись версии вида `ГГГГ.X` и `ГГГГ.X.Z`) предполагает 3 варианта выбора<br /></span><div class="spoiler_text" style="display: none">
 <ol>
-<li>Для безошибочных проектов номер <pre class="inline_code">X</pre> обозначает номер месяца, в котором была выпущена <!--[[[соответствующая/]]]-->данная версия, а <pre class="inline_code">Z</pre> — номер дополнительной/новой версии в этом же месяце.</li>
+<li>Для безошибочных проектов номер <pre class="inline_code">X</pre> обозначает номер месяца, в котором была выпущена <!--[[[соответствующая/]]]-->данная версия, а <pre class="inline_code">Z</pre> — номер дополнительной/новой версии в этом же месяце <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">но рекомендуется выпускать новые версии не чаще раза в месяц</span><span class="cu_brackets_b">}</span></span>.</li>
 <li>Для проектов, допускающих исправление ошибок, номер <pre class="inline_code">X</pre> обозначает номер месяца, в котором была выпущена <!--[[[соответствующая/]]]-->данная версия, а <pre class="inline_code">Z</pre> — номер версии <span class="sq"><span class="sq_brackets">[</span>выпущенной не обязательно в этом же месяце<span class="sq_brackets">]</span></span>, исправляющей ошибки версии <pre class="inline_code">ГГГГ.X</pre> или <pre class="inline_code">ГГГГ.X.(Z-1)</pre>.</li>
 <li>Аналогично п. 2, только <pre class="inline_code">X</pre> обозначает не номер месяца, а порядковый номер <span class="sq"><span class="sq_brackets">[</span>начиная с 1<span class="sq_brackets">]</span></span> в рамках соответствующего года. <span class="sq"><span class="sq_brackets">[</span>Стратегия JetBrains.<span class="sq_brackets">]</span></span></li>
 </ol>
@@ -152,7 +152,7 @@ the version number can only be like <pre class="inline_code">\d+\.\d+\.\d+</pre>
 <span class="spoiler_title" onclick="return spoiler2(this, event)">Что не так с SemVer?<br /></span><div class="spoiler_text" style="display: none">
 <a href="https://semver.org/lang/ru/">SemVer</a> хорошо подходит <!--[[[только ]]]-->для версий ниже 1.0.0<!--[[[ [также как и всякие дополнительные идентификаторы вроде alpha и beta]]]]--> или для некоторых типов проектов, <!--[[[а/]]]-->но многие положения SemVer вызывают вопросы, <!--[[[т.к. само по себе]]]-->включая условие поднятия major-версии<!--[[[ ‘вызывает вопросы’/неоднозначно]]]-->. Например, если изменить название функции API, этого достаточно для <!--[[[повышения/]]]-->увеличения major-версии?<br />
 <br />
-Про другие аргументы против SemVer можно почитать <a href="https://sedimental.org/designing_a_version.html" title="<- https://calver.org/">здесь</a>.<br />
+Про другие аргументы против SemVer можно почитать <a href="https://sedimental.org/designing_a_version.html" title="<- https://calver.org">здесь</a>.<br />
 </div>
 <br />
 <br />

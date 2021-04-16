@@ -1,6 +1,7 @@
 <html>
 <head>
 <meta charset="utf-8" />
+<title>Year-based Versioning (YearVer)</title>
 <base target="_blank">
 <script type="text/javascript">
 function spoiler(element, event)
@@ -101,6 +102,67 @@ div#main {width: 100%;}
 </head>
 <body>
 <div id="main" style="margin: 0 auto">
+<!--[[[H‘Year-based Versioning (YearVer)’
+]]]--><div align="right"><table>
+<tr><td><b>en</b></td><td><a href="./ru" target="_self">ru</a></td></tr>
+</table>
+</div>
+<br />
+<br />
+<br />
+<div align="center"><h2>Year-based<!--[[[>[https://zone.ni.com/reference/en-XX/help/370052AA-01/tshelp/infotopics/version/ <- google:‘"year-based"’]:‘year-based versioning’]]]--> Versioning<br />
+(YearVer)</h2></div>
+<br />
+<br />
+<br />
+The idea of YearVer is to specify version numbers in the form of <pre class="inline_code">YYYY.M</pre>,<pre class="inline_code"> YYYY.N</pre>, <pre class="inline_code">YYYY.N.n</pre> or<pre class="inline_code"> YYYY.M.n</pre> <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
+<pre class="inline_code">YYYY</pre> is a year<br />
+<pre class="inline_code">М</pre> is a month (a number from 1 to 12)<br />
+<pre class="inline_code">N</pre>/<pre class="inline_code">n</pre> is a sequential number (starting from 1)<br />
+</span><span class="cu_brackets_b">}</span></span>.<br />
+<br />
+<br />
+If you need 3 numbers separated by a dot <span class="sq"><span class="sq_brackets">[</span>for example, as in npm <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
+<pre>
+npm ERR! Invalid version: "2021.2"
+</pre>
+<blockquote><a href="https://stackoverflow.com/a/27543014/2692494" title="<- google:‘npm ERR! Invalid version’"><i>https://stackoverflow.com/a/27543014/2692494</i></a>:<br />
+<br />
+the version number can only be like <pre class="inline_code">\d+\.\d+\.\d+</pre></blockquote>
+</span><span class="cu_brackets_b">}</span></span><span class="sq_brackets">]</span></span>, then simply use <pre class="inline_code">2021.2.0</pre> instead of <pre class="inline_code">2021.2</pre>.<br />
+<br />
+<br />
+Additional versions published in the same month, or <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none"><br />
+<br />
+This means that when choosing the first strategy, the version number <pre class="inline_code">2021.2.1</pre> means ‘an additional/new version released in the same month as the main one <span class="sq"><span class="sq_brackets">[</span>i.e. in February<span class="sq_brackets">]</span></span>’, while in the second strategy, the same version number means ‘the version that fixes the main version <span class="sq"><span class="sq_brackets">[</span><pre class="inline_code">2021.2</pre><span class="sq_brackets">]</span></span> <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">also, the version <pre class="inline_code">2021.2.1</pre> itself may not have necessarily been released in February</span><span class="cu_brackets_b">}</span></span>’.<br />
+<br />
+The second strategy allows the second digit in the version number to be an incremented number <span class="sq"><span class="sq_brackets">[</span>representing a version within the given year<span class="sq_brackets">]</span></span>, instead of the month. For example, this strategy is <a href="https://www.jetbrains.com/clion/download/other.html">followed by JetBrains</a>.<br />
+<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Thus, YearVer (designating a version in the form of `YYYY.X` and` YYYY.X.Z`) has 3 choices<br /></span><div class="spoiler_text" style="display: none">
+<ol>
+<li>For bug-free projects, <pre class="inline_code">X</pre> stands for the month of the given version release, and <pre class="inline_code">Z</pre> stands for the additional/new version number in the same month <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">however, it is recommended to release new versions no more than once a month</span><span class="cu_brackets_b">}</span></span>.</li>
+<li>For projects with bugfixes, <pre class="inline_code">X</pre> stands for the month of the given version release, and <pre class="inline_code">Z</pre> is the version number <span class="sq"><span class="sq_brackets">[</span>not necessarily released in the same month<span class="sq_brackets">]</span></span> that fixes the bugs of the version <pre class="inline_code">YYYY.X</pre> or <pre class="inline_code">YYYY.X.(Z-1)</pre>.</li>
+<li>Similar to choice 2, only <pre class="inline_code">X</pre> is not the month, but a sequential number <span class="sq"><span class="sq_brackets">[</span>starting from 1<span class="sq_brackets">]</span></span> within the corresponding year. <span class="sq"><span class="sq_brackets">[</span>This strategy is followed by JetBrains.<span class="sq_brackets">]</span></span></li>
+</ol>
+</div>
+<br />
+</span><span class="cu_brackets_b">}</span></span></span><span class="cu_brackets_b">}</span></span> those fixing bugs of the main version <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">you should decide and choose the most appropriate strategy depending on your project <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">there are projects <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">usually small in size, whereas in terms of the form they are usually command line utilities <span class="sq"><span class="sq_brackets">[</span>and projects having nearly 100% code coverage<span class="sq_brackets">]</span></span></span><span class="cu_brackets_b">}</span></span> where each version must/can be bug-free <span class="sq"><span class="sq_brackets">[</span><span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">obviously, such projects do not need bug-fixing versions</span><span class="cu_brackets_b">}</span></span><span class="sq_brackets">]</span></span></span><span class="cu_brackets_b">}</span></span></span><span class="cu_brackets_b">}</span></span>, shall be numbered <pre class="inline_code">2021.2.1</pre>, <pre class="inline_code">2021.2.2</pre>, and so on.<br />
+<br />
+<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">What's wrong with SemVer?<br /></span><div class="spoiler_text" style="display: none">
+<a href="https://semver.org">SemVer</a> is a good option for versions below 1.0.0 and for certain project types. However, many SemVer provisions raise questions, including the condition of the major version increment. For example, if you change the name of an API function, will that be enough to increase the major version?<br />
+<br />
+You can find other arguments against SemVer <a href="https://sedimental.org/designing_a_version.html" title="<- https://calver.org">here</a>.<br />
+</div>
+<br />
+<br />
+<span class="spoiler_title" onclick="return spoiler2(this, event)">What's wrong with CalVer?<br /></span><div class="spoiler_text" style="display: none">
+The CalVer specification is too vague <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">calver.org fails to give any specific recommendations on a calendar versioning scheme to choose; it simply describes the schemes already used in various projects, without highlighting them in any way</span><span class="cu_brackets_b">}</span></span>.<br />
+But, of course, YearVer can be considered as a special case of <a href="https://calver.org">CalVer</a>.<br />
+</div>
+<br />
+<br />
+If you want to provide a feedback, please <a href="https://github.com/yearver/yearver/issues">open an issue on GitHub</a>.<br />
 </div>
 </body>
 </html>

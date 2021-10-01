@@ -1,0 +1,329 @@
+
+<!-- saved from url=(0055)file:///C:/Users/DNS/AppData/Local/Temp/pq_to_html.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<!--<base target="_blank">--><base href="." target="_blank">
+<script type="text/javascript">
+function spoiler(element, event)
+{
+    if (event.target.nodeName == 'A' || event.target.parentNode.nodeName == 'A' || event.target.onclick)//чтобы работали ссылки в спойлерах и спойлеры2 в спойлерах
+        return;
+    var e = element.firstChild.nextSibling.nextSibling;//element.getElementsByTagName('span')[0]
+    e.previousSibling.style.display = e.style.display;//<span>…</span> must have inverted display style
+    e.style.display = (e.style.display == "none" ? "" : "none");
+    element.firstChild.style.fontWeight =
+    element. lastChild.style.fontWeight = (e.style.display == "" ? "normal" : "bold");
+    event.stopPropagation();
+    //[-Чтобы была возможность выделять текст внутри раскрытого ‘скрытого текста’/спойлера, необходимо [скрытие/]закрытие спойлера делать не просто по нажатию левой кнопки мыши, а по отпусканию левой кнопки мыши при условии отсутствия движения курсора [мыши] после того, как была нажата левая кнопка мыши.-]
+}
+function spoiler2(element, event)
+{
+    element.nextSibling.style.display = (element.nextSibling.style.display == "none" ? "" : "none");
+}
+</script>
+<style type="text/css">
+div#main, td {
+    font-size: 14px;
+    font-family: Verdana, sans-serif;
+    line-height: 160%;
+    text-align: justify;
+}
+span.cu_brackets_b {
+    font-size: initial;
+    font-family: initial;
+    font-weight: bold;
+}
+a {
+    text-decoration: none;
+    color: #6da3bd;
+}
+a:hover {
+    text-decoration: underline;
+    color: #4d7285;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-weight: 400;
+}
+h1 {font-size: 200%; line-height: 130%;}
+h2 {font-size: 180%; line-height: 135%;}
+h3 {font-size: 160%; line-height: 140%;}
+h4 {font-size: 145%; line-height: 145%;}
+h5 {font-size: 130%; line-height: 140%;}
+h6 {font-size: 120%; line-height: 140%;}
+span.sq {color: gray; font-size: 0.8rem; font-weight: normal; /*pointer-events: none;*/}
+span.sq_brackets {color: #BFBFBF;}
+span.cu_brackets {cursor: pointer;}
+span.cu {background-color: #F7F7FF;}
+abbr {text-decoration: none; border-bottom: 1px dotted;}
+pre {margin: 0;}
+pre, code {font-family: 'Courier New'; line-height: normal}
+ul, ol {margin: 11px 0 7px 0;}
+ul li, ol li {padding: 7px 0;}
+ul li:first-child, ol li:first-child {padding-top   : 0;}
+ul  li:last-child, ol  li:last-child {padding-bottom: 0;}
+table {margin: 9px 0; border-collapse: collapse;}
+table th, table td {padding: 6px 13px; border: 1px solid #BFBFBF;}
+span.spoiler_title {
+    color: #548eaa;
+    cursor: pointer;
+    border-bottom: 1px dotted;
+}
+div.spoiler_text {
+    /*border: 1px dotted;*/
+    margin: 5px;
+    padding: 3px;
+}
+blockquote {
+    margin: 0 0 7px 0;
+    padding: 7px 12px;
+}
+blockquote:not(.re) {border-left:  0.2em solid #90ddaa; background-color: #fbfffb;}
+blockquote.re       {border-right: 0.2em solid #90ddaa; background-color: #f4fff8;}
+div.note {
+    padding: 18px 20px;
+    background: #ffffd7;
+}
+pre.code_block {padding: 6px 0;}
+pre.inline_code {
+    display: inline;
+    padding: 0px 3px;
+    border: 1px solid #E5E5E5;
+    background-color: #FAFAFA;
+    border-radius: 3px;
+}
+img {vertical-align: middle;}
+
+div#main {width: 100%;}
+@media screen and (min-width: 1050px) {
+    div#main {width: 1024px;}
+}
+</style>
+</head>
+<body>
+<div id="main" style="margin: 0 auto">
+<h2>Новая технология письменности («древопись») на примере сайта YearVer</h2>
+<br>
+<!--[[[
+Метки: древопись, древотекст, yearver, двуязычная статья
+]]]--><br>
+<br>
+Со времени появления <a href="https://habr.com/ru/post/348218/">первого языка разметки текста, который поддерживает «древопись»</a>, прошло вот уже несколько лет, однако достойного текста, демонстрирующего преимущества новой технологии письменности, так и не появилось.<br>
+<br>
+И самым большим «древотекстом» была пара абзацев из <a href="http://pqmarkup.org/ru/syntax">документации к пк-разметке</a> <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">‘Дополнительные возможности форматирования’ → ‘Спойлеры (разворачиваемый блок информации)’ → ‘Для чего нужна последняя форма’ → см. скрытый текст после слова ‘древовидно’</span><span class="cu_brackets_b">}</span></span>, которые составляют всего ~1300 знаков, и которые доступны только на русском языке.<br>
+<br>
+А на английском языке «древотекста» как такового не было вообще <span class="sq"><span class="sq_brackets">[</span>не считая маленькие вставки в документации к языку программирования 11l (например ‘Boolean type’ в <a href="http://11l-lang.org/doc/built-in-types">Built-in types</a>)<span class="sq_brackets">]</span></span>.<br>
+<br>
+Но в этом году...<br>
+<cut><br>
+...когда я приводил в порядок <abbr title="в частности, номера версий, а также статус [Beta/Stable]">мета-информацию</abbr> своих проектов, я заметил, что в итоге я пришёл к записи номеров версий в виде/форме <pre class="inline_code">ГГГГ.М[.н]</pre>. После чего мне пришла идея дать имя такому обозначению — YearVer <span class="sq"><span class="sq_brackets">[</span>очевидно, по аналогии с SemVer<span class="sq_brackets">]</span></span>. А правило называния дополнительных версий <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">опубликованных в этом же месяце, либо исправляющих ошибки основной версии</span><span class="cu_brackets_b">}</span></span> составило основу текста нового сайта.<br>
+<br>
+Вскоре со страницы <a href="https://en.wikipedia.org/wiki/Software_versioning">Software versioning в Википедии</a> я узнал про существование CalVer. Это несколько разочаровало меня, но познакомившись поближе, я увидел, что сайт calver.org не даёт никаких конкретных рекомендаций, какую именно схему «календарного версионирования» следует использовать, а просто описывает уже использующиеся схемы в различных проектах, никак не выделяя их.<br>
+Таким образом, создание сайта для YearVer осталось актуальным, и я принялся за продолжение его наполнения.<br>
+<br>
+В итоге описание схемы версинирования YearVer получилось достаточно небольшим, лаконичным, но очень определённым, предлагающим конкретные схемы/стратегии в зависимости от типа проекта.<br>
+<br>
+Осталось теперь самое интересное — перевести веб-страницу yearver.org/ru на английский с сохранением форматирования.<br>
+<br>
+Чтобы сделать качественный перевод я решил обратиться сразу в три различных бюро переводов, причём сделав акцент на том, что меня интересует максимальное качество и я <abbr title="справедливости ради, то, что я готов доплатить за качество, я указал при обращении только во второе и третье бюро переводов, а в сообщении для Alconost я указал только что ‘Требуется перевести очень небольшой по объёму текст, но очень качественно.’">готов доплатить</abbr> за него.<br>
+Я обратился в:<br>
+<ul>
+<li>Alconost (был первой ссылкой в результатах поиска в Google по запросу ‘бюро переводов сайтов’)</li>
+<li>transly.ru и tran.su (нашёл поиском по запросу ‘бюро переводов markdown’)</li>
+</ul>
+<br>
+В процессе общения с первым бюро переводов были сформулированы правила чтения «древотекста»:<br>
+<ol>
+<li>Скрытый текст {...} следует раскрывать после прочтения всего <span class="sq"><span class="sq_brackets">[</span>соответствующего<span class="sq_brackets">]</span></span> абзаца целиком.</li>
+<li>Скрытый текст {{...}} следует раскрывать после {...}.<br>
+<br>
+Например, в следующем предложении <span class="sq"><span class="sq_brackets">[</span>со страницы <a href="http://yearver.org/ru">http://yearver.org/ru</a><span class="sq_brackets">]</span></span>:<br>
+<blockquote>Дополнительные версии, опубликованные в этом же месяце, либо {…} исправляющие ошибки основной версии {…}, следует называть <pre class="inline_code">2021.2.1</pre>, <pre class="inline_code">2021.2.2</pre> и т.д.</blockquote>
+вначале следует раскрыть второй блок скрытого текста (после слов ‘основной версии’), затем все его вложенные блоки, и только потом первый блок (после слова ‘либо’).<br>
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Почему именно так был составлен этот «древотекст»?<br></span><div class="spoiler_text" style="display: none">
+<span class="spoiler_title" onclick="return spoiler2(this, event)">(Перед тем как читать это пояснение я настоятельно рекомендую прочесть [в соответствии с данными правилами] указанное предложение со страницы yearver.org/ru целиком)<br></span><div class="spoiler_text" style="display: none">
+Второй блок скрытого текста (после слов ‘исправляющие ошибки основной версии’) вводит понятие безошибочных проектов, поясняя, что в таких проектах не нужны версии исправляющие ошибки. <span class="sq"><span class="sq_brackets">[</span>И его <span class="sq"><span class="sq_brackets">[</span>второй блок<span class="sq_brackets">]</span></span>, в общем-то, можно было поместить сразу после слов ‘исправляющие ошибки’ <span class="sq"><span class="sq_brackets">[</span><span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">но я не стал так делать, т.к. в этом случае первый и второй блоки скрытого текста располагались бы слишком близко друг к другу</span><span class="cu_brackets_b">}</span></span><span class="sq_brackets">]</span></span>.<span class="sq_brackets">]</span></span><br>
+А первый блок скрытого текста относится к слову ‘либо’ (поэтому и располагается сразу после него), но, так как в нём используется понятие безошибочных проектов <span class="sq"><span class="sq_brackets">[</span>введённое во втором блоке<span class="sq_brackets">]</span></span>, раскрывать его следует после второго блока <span class="sq"><span class="sq_brackets">[</span>для чего первый блок и был заключён в дополнительные фигурные скобки<span class="sq_brackets">]</span></span>.<br>
+</div>
+</div>
+</li>
+</ol>
+<br>
+Теперь перейду к сравнению качества переводов.<br>
+<br>
+Объективно оценить качество перевода достаточно трудно, но косвенным показателем является количество замечаний к переводу. Каждое замечание я оценил по шкале от 1 до 3 баллов <span class="sq"><span class="sq_brackets">[</span>по возрастанию значимости<span class="sq_brackets">]</span></span>.<br>
+<br>
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Мои замечания к переводу от Alconost<br></span><div class="spoiler_text" style="display: none">
+<pre>\3/
+in this case, core version `2021.2.1` might be released in another month
+              ^^^^ (core здесь не нужно, т.к. в исходном тексте говорится
+                   не об основной, а о дополнительной версии [`2021.2.1`])
+\3/
+If you want to provide a feedback, please submit a ‘GitHub request ’
+                                                 ^^^^^^^^^^^^^^^^^^^
+                                         (лучше ‘an issue on GitHub’)
+\3/
+released to fix bugs in the core version
+                            ^^^^^^^^^^^^ (лучше base или main version)
+\1/
+`N`/`n` is the version number (starting with 1)
+               ^^^^^^^ (лучше sequence)
+\2/
+each version can be (or must be) without bugfixes
+                                         ^^^^^^^^ (лучше errors)
+\2/
+smaller ones, such as command-line tools
+              ^^^^ (в исходном тексте имеется в виду другое)
+\1/
+those that can be tested by almost 100%
+                  ^^^^^^
+\1/
+However, YearVer can be considered a subset of CalVer.
+^^^^^^^ (тут имеется в виду не ‘однако’, а ‘но разумеется’)
+
+\1/
+For projects without bugfixes
+    ^^^^^^^^^^^^^^^^^^^^^^^^^ (лучше errorless [или
+                                     error-free] projects)
+\2/
+however, it is supposed that you don't release several new versions within a month
+(не соответствует по смыслу оригиналу [‘но рекомендуется выпускать новые версии
+                                        не чаще раза в месяц’])
+\1/
+The key idea behind YearVer
+    ^^^^^^^^ (‘This is not a new or revolutionary idea.’:[https://semver.org/]&lt;)
+</pre>
+<br>
+Итого: 20 баллов.<br>
+<br>
+<span class="sq"><span class="sq_brackets">[</span>Сам перевод можно посмотреть по <a href="https://gist.githubusercontent.com/alextretyak/b3e64d11afc832410ebea4b3a3d0d869/raw/bdea486d21a2c1ae58d8c3de5d2df010e3a887ba/alconost.pq.txt">этой ссылке</a>.<span class="sq_brackets">]</span></span><br>
+<br>
+<span class="sq"><span class="sq_brackets">[</span><span class="sq"><span class="sq_brackets">[</span>Стоимость перевода: 5637 ₽.<span class="sq_brackets">]</span></span><span class="sq_brackets">]</span></span><br>
+</div>
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Мои замечания к переводу от transly.ru/toimetaja.eu (Välek OÜ)<br></span><div class="spoiler_text" style="display: none">
+<pre>\3/
+Сломано форматирование:
+&gt;&lt;'N(1)' Year-based versioning
+  ^^   ^
+`2021.2.1` means 'an additional/new
+                 ^
+'What's wrong with SemVer?' {...}
+^                         ^^
+[а также ещё во многих местах]
+
+\1/
+Year-based versioning
+           ^ (должно быть с заглавной буквы, т.к. это заголовок)
+
+\3/
+a version that fixes the major version [`2021.2`]
+                         ^^^^^ (the major version is `2021`,
+                                here should be ‘main version’)
+
+\1/
+Such a strategy is used by [https://www.jetbrains.com/clion/download/other.html] ...
+   Должно быть:
+Such a strategy is used[https://www.jetbrains.com/clion/download/other.html] by ...
+
+\1/
+Similarly to par. 2, except for `X`
+             ^^^^ (не уверен, что это подходит тут
+                   [нигде не встречал такого обозначения слова ‘пункт’])
+
+\1/
+However, YearVer can, of course, be considered a special
+^^^^^^^ (тут имеется в виду не ‘однако’, а ‘но разумеется’)
+
+\3/
+If you would like to share your feedback, please submit a 'GitHub Request'
+                                                        ^^^^^^^^^^^^^^^^^^
+                                                (лучше ‘an issue on GitHub’)
+\1/
+The idea of YearVer
+    ^^^^ (‘This is not a new or revolutionary idea.’:[https://semver.org/]&lt;)
+
+\1/
+SemVer[https://semver.org/lang/ru/] is a good option for
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ (следовало заменить ссылку на
+                                     английскую версию этого сайта)
+</pre>
+<br>
+Итого: 15 баллов.<br>
+<span class="sq"><span class="sq_brackets">[</span>Несмотря на меньшее количество замечаний, по моему ощущению этот перевод менее качественный, чем от Alconost (слишком дословный, что-ли... больше похоже, что это именно перевод с русского, чем нативный текст на английском).<span class="sq_brackets">]</span></span><br>
+<br>
+<span class="sq"><span class="sq_brackets">[</span>Сам перевод можно посмотреть по <a href="https://gist.githubusercontent.com/alextretyak/b3e64d11afc832410ebea4b3a3d0d869/raw/3d6394328c9f521e2648fcef7fd27604e9133d97/transly.ru.pq.txt">этой ссылке</a>.<span class="sq_brackets">]</span></span><br>
+<br>
+<span class="sq"><span class="sq_brackets">[</span><span class="sq"><span class="sq_brackets">[</span>Стоимость перевода: 4496 ₽.<span class="sq_brackets">]</span></span><span class="sq_brackets">]</span></span><br>
+</div>
+<span class="spoiler_title" onclick="return spoiler2(this, event)">Мои замечания к переводу от tran.su (Альянс ПРО)<br></span><div class="spoiler_text" style="display: none">
+<pre>\1/
+Year-based versioning
+           ^ (должно быть с заглавной буквы, т.к. это заголовок)
+
+\1/
+The idea of YearVer
+    ^^^^ (‘This is not a new or revolutionary idea.’:[https://semver.org/]&lt;)
+
+\1/
+choose `2021.2.0` instead of `2021.2`.
+^^^^^^ (по моему ощущению слово `choose` не очень подходит)
+
+\3/
+the version that fixes the major version [`2021.2`]
+                           ^^^^^ (the major version is `2021`,
+                                  here should be ‘main version’)
+\1/
+those fixing bugs in the major version
+                         ^^^^^^^^^^^^^
+in the same month as the major one
+                         ^^^^^
+(аналогично, здесь ‘major’ не уместно)
+
+\2/
+usually these are small utilities, e.g., command line tools
+                                   ^^^^ (в исходном тексте имеется в виду другое)
+
+\1/
+this strategy is followed by JetBrains [https://www.jetbrains.com/...]
+(некорректная ссылка, должно быть например:
+this strategy is ‘followed by JetBrains’[https://www.jetbrains.com/...]
+)
+
+\1/
+'Thus, YearVer (with versions like `YYYY.X` and `YYYY.X.Z`) considers 3 choices'{...}
+^                                                                              ^
+(сломано форматирование [и ещё в паре мест парные кавычки ‘ и ’ заменены на '])
+
+\2/
+For bug-fixing projects
+    ^^^^^^^^^^^^^^^^^^^ (не соответствует по смыслу оригиналу)
+
+\1/
+Of course, YearVer can be viewed as a special case of CalVer
+^ (я бы добавил ‘But’ в начало)
+</pre>
+<br>
+Итого: 14 баллов.<br>
+<br>
+<span class="sq"><span class="sq_brackets">[</span>Сам перевод можно посмотреть по <a href="https://gist.githubusercontent.com/alextretyak/b3e64d11afc832410ebea4b3a3d0d869/raw/02d3b9f622e20b85e137a4dce3db499ab5fd018f/tran.su.pq.txt">этой ссылке</a>.<span class="sq_brackets">]</span></span><br>
+<br>
+<span class="sq"><span class="sq_brackets">[</span><span class="sq"><span class="sq_brackets">[</span>Стоимость перевода: 4050 ₽.<span class="sq_brackets">]</span></span><span class="sq_brackets">]</span></span><br>
+</div>
+<br>
+В заключение <span class="sq"><span class="sq_brackets">[</span>процесса перевода<span class="sq_brackets">]</span></span> осталось проделать кропотливую работу по «слиянию» трёх полученных переводов в один текст, выбрав лучшие варианты перевода каждого предложения и каждого термина/понятия.<br>
+<br>
+<br>
+<span class="spoiler_title" onclick="return spoiler2(this, event)">А почему «древопись»?<br></span><div class="spoiler_text" style="display: none">
+Если представить дерево как структуру данных <span class="sq"><span class="sq_brackets">[</span>в программировании<span class="sq_brackets">]</span></span>, то действительно не очень понятно, как «древопись» с ним соотносится. Но если посмотреть на обычные деревья... Попробуйте на листе бумаги провести вертикальную черту — это ствол дерева, и это ваш текст <span class="sq"><span class="sq_brackets">[</span>абзац или просто предложение<span class="sq_brackets">]</span></span>. Теперь нужно идти снизу вверх и дойдя до первого блока скрытого текста следует сделать ответвление (влево или вправо <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">можно чередовать: первый блок скрытого текста — ответвление влево, второй — вправо, третий — опять влево и т.д.</span><span class="cu_brackets_b">}</span></span>). Затем раскрываем первый блок скрытого текста <span class="sq"><span class="sq_brackets">[</span>нижняя ветвь дерева<span class="sq_brackets">]</span></span>. Он может состоять либо из простого текста, либо содержать в себе другие блоки скрытого текста, соответствующие подветвям <i>д</i>е<i>рева</i>. Потому и «<i>древо</i>пись».<!--[[[В принципе, классический спойлер также можно считать формой «древописи».]]]--><br>
+<br>
+<span class="spoiler_title" onclick="return spoiler2(this, event)">А в чём отличие от классических спойлеров (вроде этого)?<br></span><div class="spoiler_text" style="display: none">
+«Древопись» — это блоки скрытого текста внутри абзаца.<br>
+А классический спойлер — это сам по себе отдельный абзац <span class="cu_brackets" onclick="return spoiler(this, event)"><span class="cu_brackets_b">{</span><span>…</span><span class="cu" style="display: none">но который, также как и блок скрытого текста «древописи», может содержать в себе несколько абзацев</span><span class="cu_brackets_b">}</span></span>.<br>
+</div>
+<!--[[[
+> Чем отличается «древопись» от «древотекста»?
+< «Древопись» — это технология письменности, а «древотекст» — это текст, написанный по этой технологии.
+]]]--></div>
+</cut></div>
+
+</body></html>

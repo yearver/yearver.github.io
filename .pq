@@ -8,7 +8,7 @@
 
 
 
-The idea of YearVer is to specify version numbers in the form of `YYYY.M`,` YYYY.N`, `YYYY.N.n` or` YYYY.M.n` {
+The idea of YearVer is to specify version numbers in the form of `YYYY.M`,` YYYY.N`, `YYYY.M.n` or` YYYY.N.n` {
 `YYYY` is a year
 `М` is a month (a number from 1 to 12)
 `N`/`n` is a sequential number (starting from 1)
@@ -36,7 +36,7 @@ The second strategy allows the second digit in the version number to be an incre
 3. Similar to choice 2, only `X` is not the month, but a sequential number [starting from 1] within the corresponding year. [This strategy is followed by JetBrains.]
 }
 
-}} those fixing bugs of the main version {you should decide and choose the most appropriate strategy depending on your project {there are projects {usually small in size, whereas in terms of the form they are usually command line utilities [and projects having nearly 100% code coverage]} where each version must/can be bug-free [{obviously, such projects do not need bug-fixing versions}]}}, shall be numbered `2021.2.1`, `2021.2.2`, and so on.
+}} those fixing bugs of the main version {you should decide and choose the most appropriate strategy depending on your project {there are projects {usually small in size, whereas in terms of the form they are usually command line utilities [and projects having nearly 100% code coverage]} where each version must/can be bug-free [{obviously, such projects do not need bug-fixing versions}]; also any projects that do not need bug-fixing versions {bug fixes are carried out by urgent release of an additional/new version} can be classified as bug-free}}, shall be numbered `2021.2.1`, `2021.2.2`, and so on.
 
 
 ‘What's wrong with SemVer?’{

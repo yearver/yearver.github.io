@@ -2,7 +2,6 @@
 ]]]>>‘T‘‘‘*‘en’’‘ru[./ru]’’’’
 
 
-
 ><‘H(1)‘Year-based[[[>[https://zone.ni.com/reference/en-XX/help/370052AA-01/tshelp/infotopics/version/ <- google:‘"year-based"’]:‘year-based versioning’]]] Versioning
 (YearVer)’’
 
